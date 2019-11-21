@@ -15,12 +15,29 @@ let setCurrentUser = (player) => {
 
 let userDiv = document.querySelector(".current-user");
 let theUser = document.createElement("span");
+// userDiv.appendChild(theUser);
 
-document.addEventListener("DOMContentLoaded", () => {
-  let currentUser = setCurrentUser(player1);
-  theUser.innerText = currentUser.name;
-  userDiv.appendChild(theUser);
+//create buttons to set vs player or computer:
+let selectionDiv = document.querySelector(".selection1");
+//button to vsPlayer
+let vsPlayer = document.createElement("button");
+vsPlayer.innerText = "vsPlayer";
+selectionDiv.appendChild(vsPlayer);
+//button to vsComputer
+let vsComputer = document.createElement("button");
+vsComputer.innerText = "vsComputer";
+selectionDiv.appendChild(vsComputer);
+
+vsPlayer.addEventListener("click", (event) => {
+  prompt("What is player 1's name?");
+  prompt("What is player 2's name?")
 });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   let currentUser = setCurrentUser(player1);
+//   theUser.innerText = currentUser.name;
+//   userDiv.appendChild(theUser);
+// });
 
 //get current user: 
 let theCurrentUser = () => {
