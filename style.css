@@ -1,0 +1,156 @@
+* {
+  margin: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body h1 {
+  margin-top: 15px;
+  color: white;
+  background: black;
+}
+
+.clear {
+  all: unset;
+  cursor: pointer;
+  width: 200px;
+  height: 40px;
+  background: black;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clear:hover {
+  color: white;
+  background: rgba(0, 0, 0, 0.297);
+}
+
+.classList {
+  letter-spacing: 4px;
+  color: rgba(0, 0, 0, 0.623);
+  border-bottom: 1px solid black;
+}
+.past-winners {
+  margin-top: 5px;
+  background: rgba(0, 0, 0, 0.112);
+  width: 200px;
+  height: 150px;
+  overflow-y: scroll;
+}
+/* board below */
+body .board {
+  height: 300px;
+  width: 300px;
+  /* border: 4px solid black; */
+  background: rgba(128, 128, 128, 0.173);
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+body .board .one-one {
+  height: 30%;
+  width: 30%;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .board .one-two {
+  height: 30%;
+  width: 30%;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .board .one-three {
+  height: 30%;
+  width: 30%;
+  border-bottom: 2px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+body .board .two-one {
+  height: 30%;
+  width: 30%;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .board .two-two {
+  height: 30%;
+  width: 30%;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .board .two-three {
+  height: 30%;
+  width: 30%;
+  border-bottom: 2px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .board .three-one {
+  height: 30%;
+  width: 30%;
+  border-right: 2px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .board .three-two {
+  height: 30%;
+  width: 30%;
+  border-right: 2px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+body .board .three-three {
+  height: 30%;
+  width: 30%;
+  /* border: 2px solid black; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
