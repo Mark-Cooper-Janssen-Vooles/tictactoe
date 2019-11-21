@@ -15,39 +15,58 @@ let setCurrentUser = (player) => {
 
 let userDiv = document.querySelector(".current-user");
 let theUser = document.createElement("span");
-// userDiv.appendChild(theUser);
 
-//create buttons to set vs player or computer:
+//create option buttons
 let selectionDiv = document.querySelector(".selection1");
-//button to vsPlayer
+let welcomeMessage = document.createElement("p");
+welcomeMessage.innerHTML = "<p>Welcome to Tic Tac Toe.</p> <p>Please select an option below to begin.</p>";
+
 let vsPlayer = document.createElement("button");
 vsPlayer.innerText = "vsPlayer";
-selectionDiv.appendChild(vsPlayer);
-//button to vsComputer
+
 let vsComputer = document.createElement("button");
 vsComputer.innerText = "vsComputer";
-selectionDiv.appendChild(vsComputer);
+
+let optionButtons = () => {
+  //this function loads the buttons:
+  //create buttons to set vs player or computer:
+  selectionDiv.appendChild(welcomeMessage);
+  //button to vsPlayer
+  selectionDiv.appendChild(vsPlayer);
+  //button to vsComputer
+  selectionDiv.appendChild(vsComputer);
+}
+//create option buttons on page load
+optionButtons();
 
 vsPlayer.addEventListener("click", (event) => {
-  prompt("What is player 1's name?");
-  prompt("What is player 2's name?")
+  let player1cust = prompt("What is player 1's name?");
+  let player2cust = prompt("What is player 2's name?");
+  player1.name = player1cust;
+  player2.name = player2cust;
+
+  if(player1cust == ""){
+    //set default values if empty
+    player1cust = "Player 1";
+  }
+  if(player2cust == ""){
+    player2cust = "Player 2";
+  }
+
+  // //clear buttons once selection is made.
+  let selectionDiv = document.querySelector(".selection1");
+  selectionDiv.innerHTML = "";
+
+  // //also now need to load whoose turn it is: 
+  theUser.innerText = player1.name;
+  userDiv.appendChild(theUser);
+
+  return player1.name = player1cust, player2.name = player2cust;
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   let currentUser = setCurrentUser(player1);
-//   theUser.innerText = currentUser.name;
-//   userDiv.appendChild(theUser);
-// });
-
-//get current user: 
-let theCurrentUser = () => {
-  console.log(theUser);
-  if(theUser.innerText === player1.name){
-    return player1;
-  } else {
-    return player2;
-  }
-}
+vsComputer.addEventListener("click", (event) => {
+  alert("We are still working on the ethics of AI.")
+});
 
 const userChange = () => {
   userDiv.innerText = "";
@@ -112,6 +131,16 @@ let createOX = () => {
 
 //past winners feature
 let pastWinners = [];
+
+// //check a new winner is added, add them to the database. 
+// let saveData = (pastWinners) => {
+//   localStorage["pastWinnersHistory"] = JSON.stringify(pastWinners);
+// }
+
+
+// //check for pastWinners to presist data on page load.
+// document.addEventListener("")
+
 let ranking = document.querySelector(".past-winners");
 
 let reloadWinners = (pastWinners) => {
