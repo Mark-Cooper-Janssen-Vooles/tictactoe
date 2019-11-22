@@ -130,29 +130,24 @@ let createOX = () => {
 }
 
 //past winners feature
-let pastWinners = [];
+//need to declare this outside of if block (todo with scope!);
+let pastWinners;
+
+if (localStorage.getItem("pastWinnersHistory") === null) {
+  pastWinners = [];
+} else {
+  pastWinners = JSON.parse(localStorage["pastWinnersHistory"]);
+}
 
 //check a new winner is added, add them to the database. 
 let saveData = (pastWinners) => {
   localStorage["pastWinnersHistory"] = JSON.stringify(pastWinners);
 }
 
-
-//check for pastWinners to presist data on page load.
-// document.addEventListener("")
-
 let ranking = document.querySelector(".past-winners");
 
 let reloadWinners = (pastWinners) => {
-  saveData(pastWinners);
-  console.log(localStorage);
-
   ranking.innerText = "";
-  let aTitle = document.createElement("p");
-  aTitle.classList.add("classList")
-  aTitle.innerText = "past winners";
-  ranking.appendChild(aTitle);
-
   pastWinners.forEach((item) => {
     let aWinner = document.createElement("p");
     aWinner.innerText = item.name
@@ -160,6 +155,8 @@ let reloadWinners = (pastWinners) => {
     // debugger;
   });
 }
+//show past winners on page load:
+reloadWinners(pastWinners);
 
 //event listeners for moves
 let theListener = (theSquare) => {
@@ -213,6 +210,7 @@ let theListener = (theSquare) => {
       if(win1 === "O" & win12 === "O" & win13 === "O"){
         alert(`${player1.name} Wins!`);
         pastWinners.push(player1);
+        saveData(pastWinners);
         reloadWinners(pastWinners);
       } else if(win1 === "X" & win12 === "X" & win13 === "X"){
         alert(`${player2.name} Wins!`);
