@@ -280,7 +280,37 @@ theListener(threeOne);
 theListener(threeTwo);
 theListener(threeThree);
 
+let calculateWinners = (pastWinners) => {
+  //converts to objects with count based on how many times the name appears
+  let finalArray = pastWinners.reduce((accum, curr) => {
+    accum[curr.name] = (accum[curr.name] || 0) + 1
+    return accum;
+  }, {});
+  //converts back to array
+  let sortThis = [];
+  for (person in finalArray){
+    sortThis.push([person, finalArray[person]]);
+  }
+  //orders array
+  let sorted = sortThis.sort((a, b) => {
+    if(a[1] < b[1]){
+      return 1;
+    } else if (a[1] > b[1] ){
+      return -1;
+    } else if (a[1] === b[1]){
+      return 0;
+    }
+  })
+  sorted.forEach((item) => {
+    //append to the dom
+    let aWinner = document.createElement("p");
+    aWinner.innerText = `${item[0]}: ${item[1]}`
+    ranking.appendChild(aWinner);
+  });
+}
+
 let checkLeaders = document.querySelector(".classList");
 checkLeaders.addEventListener("click", (event) => {
-  console.log("h")
+  ranking.innerHTML = "";
+  calculateWinners(pastWinners);
 });
