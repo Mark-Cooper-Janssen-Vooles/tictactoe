@@ -48,7 +48,15 @@ body h1 {
   height: 150px;
   overflow-y: scroll;
 }
-
+.actual-cover {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 88vh;
+  margin-top: 12vh;
+  background: rgba(128, 128, 128, 0.8);
+}
 /* board below */
 body .board {
   height: 300px;

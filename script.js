@@ -61,6 +61,9 @@ vsPlayer.addEventListener("click", (event) => {
   theUser.innerText = player1.name;
   userDiv.appendChild(theUser);
 
+  let theCover = document.querySelector(".actual-cover");
+  theCover.classList.remove("actual-cover");
+
   return player1.name = player1cust, player2.name = player2cust;
 });
 
@@ -145,6 +148,7 @@ let saveData = (pastWinners) => {
 }
 
 let ranking = document.querySelector(".past-winners");
+ranking.classList.add("past-winners");
 
 let reloadWinners = (pastWinners) => {
   ranking.innerText = "";
@@ -311,6 +315,17 @@ let calculateWinners = (pastWinners) => {
 
 let checkLeaders = document.querySelector(".classList");
 checkLeaders.addEventListener("click", (event) => {
-  ranking.innerHTML = "";
-  calculateWinners(pastWinners);
+  //toggles between past winners display and leader board display.
+  if(ranking.classList[0] === "past-winners"){
+    ranking.innerHTML = "";
+    ranking.classList.remove("past-winners")
+    ranking.classList.add("leader-board")
+    calculateWinners(pastWinners);
+  } else if (ranking.classList[0] === "leader-board"){
+    console.log("hi")
+    ranking.innerHTML = "";
+    ranking.classList.remove("leader-board")
+    ranking.classList.add("past-winners")
+    reloadWinners(pastWinners);
+  }
 });
