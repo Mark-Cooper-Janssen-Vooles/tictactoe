@@ -210,73 +210,58 @@ let theListener = (theSquare) => {
       if(win1 === "O" & win12 === "O" & win13 === "O"){
         alert(`${player1.name} Wins!`);
         pastWinners.push(player1);
-        saveData(pastWinners);
-        reloadWinners(pastWinners);
       } else if(win1 === "X" & win12 === "X" & win13 === "X"){
         alert(`${player2.name} Wins!`);
         pastWinners.push(player2);
-        reloadWinners(pastWinners);
       } else if(win2 === "O" & win22 === "O" & win23 === "O"){
         alert(`${player1.name} Wins!`);
         pastWinners.push(player1);
-        reloadWinners(pastWinners);
       } else if(win2 === "X" & win22 === "X" & win23 === "X"){
         alert(`${player2.name} Wins!`);
         pastWinners.push(player2);
-        reloadWinners(pastWinners);
       } else if(win3 === "O" & win32 === "O" & win33 === "O"){
         alert(`${player1.name} Wins!`);
         pastWinners.push(player1);
-        reloadWinners(pastWinners);
       } else if(win3 === "X" & win32 === "X" & win33 === "X"){
         alert(`${player2.name} Wins!`);
         pastWinners.push(player2);
-        reloadWinners(pastWinners);
       }
       //columns: 
       if(col1 === "O" & col12 === "O" & col13 === "O"){
         alert(`${player1.name} Wins!`);
         pastWinners.push(player1);
-        reloadWinners(pastWinners);
       } else if(col1 === "X" & col12 === "X" & col13 === "X"){
         alert(`${player2.name} Wins!`);
         pastWinners.push(player2);
-        reloadWinners(pastWinners);
       } else if(col2 === "O" & col22 === "O" & col23 === "O"){
         alert(`${player1.name} Wins!`);
         pastWinners.push(player1);
-        reloadWinners(pastWinners);
       } else if(col2 === "X" & col22 === "X" & col23 === "X"){
         alert(`${player2.name} Wins!`);
         pastWinners.push(player2);
-        reloadWinners(pastWinners);
       } else if(col3 === "O" & col32 === "O" & col33 === "O"){
         alert(`${player1.name} Wins!`);
         pastWinners.push(player1);
-        reloadWinners(pastWinners);
       } else if(col3 === "X" & col32 === "X" & col33 === "X"){
         alert(`${player2.name} Wins!`);
         pastWinners.push(player2);
-        reloadWinners(pastWinners);
       } 
       //diagonal: 
       if(dia1 === "O" & dia2 === "O" & dia3 === "O"){
         alert(`${player1.name} Wins!`);
         pastWinners.push(player1);
-        reloadWinners(pastWinners);
       } else if(dia1 === "X" & dia2 === "X" & dia3 === "X"){
         alert(`${player2.name} Wins!`);
         pastWinners.push(player2);
-        reloadWinners(pastWinners);
       } else if(dia4 === "O" & dia5 === "O" & dia6 === "O"){
         alert(`${player1.name} Wins!`);
         pastWinners.push(player1);
-        reloadWinners(pastWinners);
       } else if(dia4 === "X" & dia5 === "X" & dia6 === "X"){
         alert(`${player2.name} Wins!`);
         pastWinners.push(player2);
-        reloadWinners(pastWinners);
       }
+      saveData(pastWinners);
+      reloadWinners(pastWinners);
     }
     checkWin();
   })
@@ -294,3 +279,8 @@ theListener(twoThree);
 theListener(threeOne);
 theListener(threeTwo);
 theListener(threeThree);
+
+let checkLeaders = document.querySelector(".classList");
+checkLeaders.addEventListener("click", (event) => {
+  console.log("h")
+});
