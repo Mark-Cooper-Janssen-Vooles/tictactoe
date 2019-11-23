@@ -42,8 +42,6 @@ optionButtons();
 vsPlayer.addEventListener("click", (event) => {
   let player1cust = prompt("What is player 1's name?");
   let player2cust = prompt("What is player 2's name?");
-  player1.name = player1cust;
-  player2.name = player2cust;
 
   if(player1cust == ""){
     //set default values if empty
@@ -52,6 +50,9 @@ vsPlayer.addEventListener("click", (event) => {
   if(player2cust == ""){
     player2cust = "Player 2";
   }
+
+  player1.name = player1cust;
+  player2.name = player2cust;
 
   // //clear buttons once selection is made.
   let selectionDiv = document.querySelector(".selection1");
@@ -111,7 +112,12 @@ let clearBoard = () => {
   threeTwo.innerHTML = "";
   threeThree.innerHTML = "";
 
-  theUser.innerText = player1.name;
+  //swaps who goes first after every round.
+  if(theUser.innerText === player1.name){
+    theUser.innerText = player1.name;
+  } else if (theUser.innerText === player2.name){
+    theUser.innerText = player2.name;
+  }
 };
 
 let clearButton = document.querySelector(".clear");
@@ -322,7 +328,6 @@ checkLeaders.addEventListener("click", (event) => {
     ranking.classList.add("leader-board")
     calculateWinners(pastWinners);
   } else if (ranking.classList[0] === "leader-board"){
-    console.log("hi")
     ranking.innerHTML = "";
     ranking.classList.remove("leader-board")
     ranking.classList.add("past-winners")
